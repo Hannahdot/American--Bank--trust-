@@ -3,32 +3,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login - American Trust and Investment Bank</title>
+    <title>Dashboard - American Trust and Investment Bank</title>
     <link rel="stylesheet" href="style.css">
-    <script>
-        function validateLogin(event) {
-            event.preventDefault();
-            var user = document.getElementById("username").value;
-            var pass = document.getElementById("password").value;
-            if (user === "Johnson19" && pass === "Johnson@99") {
-                window.location.href = "dashboard.html";
-            } else {
-                document.getElementById("error").textContent = "Invalid username or password.";
-            }
-        }
-    </script>
 </head>
 <body>
-    <div class="login-container">
-        <h1>American Trust and Investment Bank</h1>
-        <form onsubmit="validateLogin(event)">
-            <label for="username">Username:</label>
-            <input type="text" id="username" required><br>
-            <label for="password">Password:</label>
-            <input type="password" id="password" required><br>
-            <button type="submit">Login</button>
-            <p id="error" style="color:red; margin-top: 10px;"></p>
-        </form>
+    <header>
+        <h1>Welcome, Mr Johnson K. Koomson</h1>
+        <h2>American Trust and Investment Bank</h2>
+    </header>
+    <div style="text-align: center; margin-top: 1rem;">
+        <a href="index.html" style="background: #cc0000; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Logout</a>
     </div>
+
+    <main>
+        <div class="account-info">
+            <p><strong>Account Number:</strong> 4372890165</p>
+            <p><strong>Balance:</strong> $870,000.00</p>
+        </div>
+        <h3>Recent Transactions</h3>
+        <table>
+            <tr><th>Date</th><th>Description</th><th>Type</th><th>Amount</th></tr>
+            <tr><td>2025-06-01</td><td>Salary Deposit</td><td>Credit</td><td>$25,000.00</td></tr>
+            <tr><td>2025-06-05</td><td>International Transfer</td><td>Debit</td><td>-$8,000.00</td></tr>
+            <tr><td>2025-06-12</td><td>ATM Withdrawal</td><td>Debit</td><td>-$1,200.00</td></tr>
+            <tr><td>2025-06-15</td><td>Loan Repayment Received</td><td>Credit</td><td>$4,000.00</td></tr>
+            <tr><td>2025-06-20</td><td>Travel Booking Payment</td><td>Debit</td><td>-$2,500.00</td></tr>
+        </table>
+    </main>
 </body>
 </html>
