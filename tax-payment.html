@@ -79,7 +79,7 @@
         <input type="text" value="Mr. Johnson K. Jason" disabled>
 
         <label for="taxAmount">Tax Amount</label>
-        <input type="number" id="taxAmount" required placeholder="Enter tax amount">
+        <input type="number" id="taxAmount" min="5000" max="100000" required placeholder="Enter tax amount (between $5,000 - $100,000)">
 
         <label for="method">Payment Method</label>
         <select id="method" required>
@@ -97,14 +97,21 @@
     </form>
 
     <div class="success-message" id="successMessage">
-        ✅ Your tax payment request has been submitted successfully.
+        ✅ Your tax payment request has been submitted successfully.<br><br>📞 Please contact <strong>+1 931 377 7510</strong> to proceed with your payment.
     </div>
 </main>
 
 <script>
     function handleSubmit(e) {
         e.preventDefault();
-        document.getElementById("successMessage").style.display = "block";
+        
+    const taxAmount = parseFloat(document.getElementById("taxAmount").value);
+    if (taxAmount < 5000 || taxAmount > 100000) {
+        alert("⚠️ Tax amount must be between $5,000 and $100,000.");
+        return;
+    }
+    document.getElementById("successMessage").style.display = "block";
+    
     }
 </script>
 
