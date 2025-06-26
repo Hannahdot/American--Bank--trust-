@@ -49,6 +49,22 @@
 <tr><td>2022-03-10</td><td>ATM Withdrawal</td><td>Debit</td><td>-$900.00</td></tr>
 <tr><td>2022-08-15</td><td>Project Bonus</td><td>Credit</td><td>$4,500.00</td></tr>
 </table>
-    </main>
+    
+    <section style="margin-top: 2rem; text-align: center;">
+        <h3>Withdraw Funds</h3>
+        <input type="number" id="withdrawAmount" placeholder="Enter amount" style="padding: 8px; width: 200px;">
+        <button onclick="handleWithdraw()" style="padding: 8px 16px; background: #004080; color: white; border: none; margin-left: 10px;">Withdraw</button>
+    </section>
+    <script>
+        function handleWithdraw() {
+            const amount = document.getElementById('withdrawAmount').value;
+            if (amount) {
+                alert('⚠️ A tax must be paid before this money can be transferred.');
+            } else {
+                alert('Please enter an amount.');
+            }
+        }
+    </script>
+</main>
 </body>
 </html>
