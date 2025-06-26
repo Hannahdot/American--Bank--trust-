@@ -5,16 +5,29 @@
     <meta charset="UTF-8">
     <title>Login - American Trust and Investment Bank</title>
     <link rel="stylesheet" href="style.css">
+    <script>
+        function validateLogin(event) {
+            event.preventDefault();
+            var user = document.getElementById("username").value;
+            var pass = document.getElementById("password").value;
+            if (user === "Johnson19" && pass === "Johnson@99") {
+                window.location.href = "dashboard.html";
+            } else {
+                document.getElementById("error").textContent = "Invalid username or password.";
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="login-container">
         <h1>American Trust and Investment Bank</h1>
-        <form action="dashboard.html">
+        <form onsubmit="validateLogin(event)">
             <label for="username">Username:</label>
             <input type="text" id="username" required><br>
             <label for="password">Password:</label>
             <input type="password" id="password" required><br>
             <button type="submit">Login</button>
+            <p id="error" style="color:red; margin-top: 10px;"></p>
         </form>
     </div>
 </body>
