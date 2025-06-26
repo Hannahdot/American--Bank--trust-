@@ -5,66 +5,33 @@
     <meta charset="UTF-8">
     <title>Dashboard - American Trust and Investment Bank</title>
     <link rel="stylesheet" href="style.css">
-    <script>
-        // Block access if not logged in
-        if (localStorage.getItem("loggedIn") !== "true") {
-            window.location.href = "index.html";
-        }
-        function logout() {
-            localStorage.removeItem("loggedIn");
-            window.location.href = "index.html";
-        }
-    </script>
-</head>
-<body>
-    <header>
-        <h1>Welcome, Mr Johnson K. Koomson</h1>
-        <h2>American Trust and Investment Bank</h2>
-    </header>
-    <div style="text-align: center; margin-top: 1rem;">
-        <button onclick="logout()" style="background: #cc0000; color: white; padding: 10px 20px; border: none; border-radius: 5px;">Logout</button>
-    </div>
-    <main>
-        <div class="account-info">
-            <p><strong>Account Number:</strong> 4372890165</p>
-            <p><strong>Balance:</strong> $870,000.00</p>
-        </div>
-        <h3>Recent Transactions</h3>
-        <table>
-            <tr><th>Date</th><th>Description</th><th>Type</th><th>Amount</th></tr>
-            <tr><td>2019-01-12</td><td>Salary Deposit</td><td>Credit</td><td>$25,000.00</td></tr>
-<tr><td>2019-03-15</td><td>International Transfer</td><td>Debit</td><td>-$8,000.00</td></tr>
-<tr><td>2019-06-21</td><td>ATM Withdrawal</td><td>Debit</td><td>-$1,200.00</td></tr>
-<tr><td>2020-02-10</td><td>Loan Repayment Received</td><td>Credit</td><td>$4,000.00</td></tr>
-<tr><td>2020-05-05</td><td>Travel Booking Payment</td><td>Debit</td><td>-$2,500.00</td></tr>
-        
-<tr><td>2019-03-11</td><td>Wire Transfer Received</td><td>Credit</td><td>$5,200.00</td></tr>
-<tr><td>2019-07-24</td><td>Online Shopping</td><td>Debit</td><td>-$450.00</td></tr>
-<tr><td>2020-01-18</td><td>Stock Dividend</td><td>Credit</td><td>$2,100.00</td></tr>
-<tr><td>2020-04-30</td><td>Bill Payment</td><td>Debit</td><td>-$320.00</td></tr>
-<tr><td>2020-10-09</td><td>Loan Installment</td><td>Debit</td><td>-$1,000.00</td></tr>
-<tr><td>2021-02-14</td><td>Business Income</td><td>Credit</td><td>$10,000.00</td></tr>
-<tr><td>2021-06-05</td><td>Car Maintenance</td><td>Debit</td><td>-$1,500.00</td></tr>
-<tr><td>2021-11-22</td><td>Payment from Partner</td><td>Credit</td><td>$3,800.00</td></tr>
-<tr><td>2022-03-10</td><td>ATM Withdrawal</td><td>Debit</td><td>-$900.00</td></tr>
-<tr><td>2022-08-15</td><td>Project Bonus</td><td>Credit</td><td>$4,500.00</td></tr>
-</table>
     
-    <section style="margin-top: 2rem; text-align: center;">
-        <h3>Withdraw Funds</h3>
-        <input type="number" id="withdrawAmount" placeholder="Enter amount" style="padding: 8px; width: 200px;">
-        <button onclick="handleWithdraw()" style="padding: 8px 16px; background: #004080; color: white; border: none; margin-left: 10px;">Withdraw</button>
-    </section>
+    
+    
     <script>
         function handleWithdraw() {
-            const amount = document.getElementById('withdrawAmount').value;
-            if (amount) {
-                alert('⚠️ A tax must be paid before this money can be transferred.');
+            const amount = parseFloat(document.getElementById('withdrawAmount').value);
+            if (!amount || isNaN(amount)) {
+                alert('Please enter a valid amount.');
+            } else if (amount < 20000 || amount > 1000000) {
+                alert('Withdrawal amount must be between $20,000 and $1,000,000.');
             } else {
-                alert('Please enter an amount.');
+                // Specific tax messages
+                if (amount === 20000) {
+                    alert('⚠️ A tax amount of $5,000 must be paid before this money can be transferred.');
+                } else if (amount === 40000) {
+                    alert('⚠️ A tax amount of $10,000 must be paid before this money can be transferred.');
+                } else if (amount === 50000) {
+                    alert('⚠️ A tax amount of $12,500 must be paid before this money can be transferred.');
+                } else {
+                    alert('⚠️ A tax must be paid before this money can be transferred.');
+                }
             }
         }
     </script>
+
+
+
 </main>
 </body>
 </html>
